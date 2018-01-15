@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="static/js/controller.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>Страны и города</title>
@@ -11,6 +12,20 @@
             <p>Номер телефона или email: <input type="text" data-ng-model="name"></p>
             <!--<p data-ng-bind="name"></p>-->
             <p>Пароль: <input type="password" data-ng-model="password"></p>
+        </div>
+        <div>
+            <ul>
+                <li ng-repeat="country in countries" ng-click="clickHandler(country.id)">
+                    <span ng-bind="country.title"></span>
+                </li>
+            </ul>
+        </div>
+        <div ng-if="cities.length !== 0">
+            <ul>
+                <li ng-repeat="city in cities">
+                    <span ng-bind="city.title"></span>
+                </li>
+            </ul>
         </div>
     </div>
 </body>
